@@ -77,7 +77,7 @@
 - name: "Set fact about Gitea External IP"
   set_fact:
     gitea_external_ip: "{{ web_service.resources[0].status.loadBalancer.ingress[0].ip }}"
-
+  when: web_service | bool
 
 - name: Debug message
   ansible.builtin.debug:
